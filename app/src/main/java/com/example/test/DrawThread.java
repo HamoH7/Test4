@@ -22,10 +22,10 @@ public class DrawThread extends Thread {
     private float lastTouchX = 0;
     private float lastTouchY = 0;
     private int m = 0, n = 0, m1 = 0, m2 = 0, m3 = 0, m4 = 0, eat = 0, e = 0, eatTimer = 10, m5 = 0;
-    private double h = (float)1/3600;
-    private double s = (float) 1 / 9600;
-    private double q = (float) 1 / 5400;
-    private double k = (float) 1 / 6000;
+    private double h = (float)1/36;
+    private double s = (float) 1 / 96;
+    private double q = (float) 1 / 54;
+    private double k = (float) 1 / 60;
     private double food = (float) 1 / 10;
     private float hungryRight = 0, happyRight = 0, sleepRight = 0, dirtRight = 0, lifeRight = 0;
     private int life, dirt, hungry, sleep,happy;
@@ -61,6 +61,7 @@ public class DrawThread extends Thread {
     private Bitmap eat1BitmapS, eat2BitmapS, eat3BitmapS, eat4BitmapS, eat5BitmapS, eat6BitmapS, eat7BitmapS, eat8BitmapS, eat9BitmapS, eat10BitmapS;
     private Bitmap eat1BitmapT, eat2BitmapT, eat3BitmapT, eat4BitmapT, eat5BitmapT, eat6BitmapT, eat7BitmapT, eat8BitmapT, eat9BitmapT, eat10BitmapT;
     private Bitmap eat1BitmapTS, eat2BitmapTS, eat3BitmapTS, eat4BitmapTS, eat5BitmapTS, eat6BitmapTS, eat7BitmapTS, eat8BitmapTS, eat9BitmapTS, eat10BitmapTS;
+    private Bitmap eat1BitmapSmile, eat2BitmapSmile, eat3BitmapSmile, eat4BitmapSmile, eat5BitmapSmile, eat6BitmapSmile, eat7BitmapSmile, eat8BitmapSmile, eat9BitmapSmile, eat10BitmapSmile;
     private volatile boolean running = true;
     Paint paint = new Paint();
     Paint paintLife = new Paint();
@@ -185,6 +186,16 @@ public class DrawThread extends Thread {
         eat8BitmapTS = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_t_s_8);
         eat9BitmapTS = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_t_s_9);
         eat10BitmapTS = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_t_s_10);
+        eat1BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_1);
+        eat2BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_2);
+        eat3BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_3);
+        eat4BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_4);
+        eat5BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_5);
+        eat6BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_6);
+        eat7BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_7);
+        eat8BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_8);
+        eat9BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_9);
+        eat10BitmapSmile = BitmapFactory.decodeResource(context.getResources(),R.drawable.e_hp_10);
         eat1DarkBitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.mug1);
         eat2DarkBitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.mug2);
         eat3DarkBitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.mug3);
@@ -438,12 +449,12 @@ public class DrawThread extends Thread {
                                 break;
                             case 1:
                                 eatButtonBitmap = eat1DarkBitmap;
-                                break;
-                            case 0:
-                                eatButtonBitmap = eatButtonBitmap2;
                                 eatChecker = true;
                                 lastTouchX = 0;
                                 lastTouchY = 0;
+                                break;
+                            case 0:
+                                eatButtonBitmap = eatButtonBitmap2;
                         }
                     }
                     canvas.drawBitmap(eatButtonBitmap,eatButtonLeft,eatButtonTop,paint);
@@ -563,6 +574,16 @@ public class DrawThread extends Thread {
                     eat8Bitmap = Bitmap.createScaledBitmap(eat8Bitmap,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
                     eat9Bitmap = Bitmap.createScaledBitmap(eat9Bitmap,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
                     eat10Bitmap = Bitmap.createScaledBitmap(eat10Bitmap,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat1BitmapSmile = Bitmap.createScaledBitmap(eat1BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat2BitmapSmile = Bitmap.createScaledBitmap(eat2BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat3BitmapSmile = Bitmap.createScaledBitmap(eat3BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat4BitmapSmile = Bitmap.createScaledBitmap(eat4BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat5BitmapSmile = Bitmap.createScaledBitmap(eat5BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat6BitmapSmile = Bitmap.createScaledBitmap(eat6BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat7BitmapSmile = Bitmap.createScaledBitmap(eat7BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat8BitmapSmile = Bitmap.createScaledBitmap(eat8BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat9BitmapSmile = Bitmap.createScaledBitmap(eat9BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
+                    eat10BitmapSmile = Bitmap.createScaledBitmap(eat10BitmapSmile,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
                     eat1BitmapD = Bitmap.createScaledBitmap(eat1BitmapD,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
                     eat2BitmapD = Bitmap.createScaledBitmap(eat2BitmapD,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
                     eat3BitmapD = Bitmap.createScaledBitmap(eat3BitmapD,canvas.getWidth() * 145 / 1050,canvas.getHeight()*172/540,true);
@@ -681,6 +702,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat1BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat1BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat1BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat1Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat1BitmapSmile;
                                 break;
                             case 2:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat2BitmapDTS;
@@ -690,6 +713,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat2BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat2BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat2BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat2Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat2BitmapSmile;
                                 break;
                             case 3:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat3BitmapDTS;
@@ -699,6 +724,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat3BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat3BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat3BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat3Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat3BitmapSmile;
                                 break;
                             case 4:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat4BitmapDTS;
@@ -708,6 +735,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat4BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat4BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat4BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat4Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat4BitmapSmile;
                                 break;
                             case 5:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat5BitmapDTS;
@@ -717,6 +746,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat5BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat5BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat5BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat5Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat5BitmapSmile;
                                 break;
                             case 6:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat6BitmapDTS;
@@ -726,6 +757,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat6BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat6BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat6BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat6Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat6BitmapSmile;
                                 break;
                             case 7:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat7BitmapDTS;
@@ -735,6 +768,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat7BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat7BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat7BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat7Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat7BitmapSmile;
                                 break;
                             case 8:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat8BitmapDTS;
@@ -744,6 +779,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat8BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat8BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat8BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat8Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat8BitmapSmile;
                                 break;
                             case 9:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat9BitmapDTS;
@@ -753,6 +790,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat9BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat9BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat9BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat9Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat9BitmapSmile;
                                 break;
                             case 10:
                                 if (bitmap1 == bitmapDTS1 || bitmap1 == bitmapDTSH1) bitmap = eat10BitmapDTS;
@@ -762,6 +801,8 @@ public class DrawThread extends Thread {
                                 else if (bitmap1 == bitmapD1 || bitmap1 == bitmapDH1) bitmap = eat10BitmapD;
                                 else if (bitmap1 == bitmapS1 || bitmap1 == bitmapSH1) bitmap = eat10BitmapS;
                                 else if (bitmap1 == bitmapT1 || bitmap1 == bitmapTH1) bitmap = eat10BitmapT;
+                                else if (bitmap1 == bitmapUsual1 || bitmap1 == bitmapH1) bitmap = eat10Bitmap;
+                                else if (bitmap1 == bitmapSmile1) bitmap = eat10BitmapSmile;
                                 eating = false;
                                 eat = 0;
                                 lastTouchY = 0;
